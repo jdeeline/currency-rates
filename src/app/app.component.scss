@@ -1,0 +1,21 @@
+.navbar {
+  padding: 0.25rem;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: inherit;
+
+    img {
+      margin: 0 1rem 0 0;
+    }
+  }
+}
+
+.content {
+  padding: 1rem 0;
+}

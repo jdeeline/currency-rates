@@ -1,0 +1,66 @@
+<div [appLoading]="isLoading">
+  <div class="converter">
+    <div class="converter-group">
+      <button
+        class="hint"
+        [ngClass]="{'active': hint === exchangeAmount}"
+        *ngFor="let hint of amountHints"
+        (click)="onHintClick(hint)"
+      >
+        {{ hint | number: '1.0-0'}}
+      </button>
+    </div>
+
+    <div class="converter-group">
+      Or enter amount:
+
+      <input
+        class="input"
+        type="number"
+        [(ngModel)]="exchangeAmount"
+        min="10"
+        step="10"
+      />
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Char code</th>
+        <th>Name</th>
+        <th>Nominal</th>
+        <th>Rate</th>
+        <th>Previous</th>
+        <th *ngIf="exchangeAmount">Exchange to</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let currency of currencies">
+        <td>{{ currency.code }}</td>
+        <td>{{ currency.name }}</td>
+        <td>{{ currency.nominal }}</td>
+        <td>
+          <span
+            [class.increase]="currency.rate > currency.previousRate"
+            [class.decrease]="currency.rate < currency.previousRate"
+          >
+            {{ currency.rate }}
+          </span>
+        </td>
+        <td>{{ currency.previousRate }}</td>
+        <td *ngIf="exchangeAmount">
+          {{ convert(exchangeAmount, currency) | number: '1.0-2' }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="source">
+    Source:
+    <a href="https://www.cbr-xml-daily.ru/">
+      API Central bank of Russian Federation
+    </a>
+  </div>
+</div>

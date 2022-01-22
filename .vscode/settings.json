@@ -1,0 +1,18 @@
+{
+  "scss.validate": false,
+  "css.validate": false,
+  "less.validate": false,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "html"
+  ],
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".ts",
+      "html"
+    ]
+  },
+  "editor.tabSize": 2,
+}
