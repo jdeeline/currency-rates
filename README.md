@@ -2,6 +2,8 @@
 
 A simple application on Angular that allows you to get exchange rates according to the Central Bank of the Russian Federation and convert Russian rubles into other currencies.
 
+[Demo](https://jdeeline.github.io/currency-rates/)
+
 ## Prerequisites
 
 - npm
